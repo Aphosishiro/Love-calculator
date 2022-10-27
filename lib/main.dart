@@ -53,14 +53,14 @@ input my love percentage logic
       }
       if (hisnametext.isEmpty && hernametext.isEmpty) {
         return;
-      } else if (hisnametext.contains('yanmife') &&
-          hernametext.contains('chioma')) {
+      } else if (hisnametext.contains('Yanmife') &&
+          hernametext.contains('Chioma')) {
         setState(() {
           lovepercentage = Random().nextInt(1) + 100;
         });
-      } else if (hisnametext.contains('cloak') ||
-          hisnametext.contains("michael") ||
-          hisnametext.contains("olumide")) {
+      } else if (hisnametext.contains('Cloak') ||
+          hisnametext.contains("Michael") ||
+          hisnametext.contains("Olumide")) {
         setState(() {
           lovepercentage = Random().nextInt(5)+2;
         });
