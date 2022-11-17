@@ -28,7 +28,7 @@ class _LovecalState extends State<Lovecal> {
   String message1 = "She's your starlight";
   String message2 = "A wonderful love story";
   String message3 = "LOL...you think you deserve love";
-
+  String message4 = "You are a programmer bro, you are married to your code";
 
   int lovepercentage = 0;
 // the validation function
@@ -48,7 +48,7 @@ input my love percentage logic
 
       if (hisnametext.isNotEmpty && hernametext.isNotEmpty) {
         setState(() {
-          lovepercentage = Random().nextInt(50) + 20;
+          lovepercentage = Random().nextInt(50) + 30;
         });
       }
       if (hisnametext.isEmpty && hernametext.isEmpty) {
@@ -62,11 +62,14 @@ input my love percentage logic
           hisnametext.contains("Michael") ||
           hisnametext.contains("Olumide")) {
         setState(() {
-          lovepercentage = Random().nextInt(5)+2;
+          lovepercentage = Random().nextInt(5) + 2;
         });
-      } else if (hisnametext.isNotEmpty && hernametext.isNotEmpty) {
+      } else if (hisnametext.contains('Xypher') ||
+          hisnametext.contains('Samuel') ||
+          hisnametext.contains('Tope') ||
+          hisnametext.contains('Temitope')) {
         setState(() {
-          lovepercentage = Random().nextInt(50) + 50;
+          lovepercentage = Random().nextInt(5) + 10;
         });
       }
     }
@@ -93,6 +96,7 @@ input my love percentage logic
                     Container(
                       margin: const EdgeInsets.symmetric(horizontal: 30),
                       child: TextFormField(
+                        textCapitalization: TextCapitalization.sentences,
                         controller: hisname,
                         validator: (value) {
                           if (value == "") {
@@ -137,6 +141,7 @@ input my love percentage logic
                     Container(
                       margin: const EdgeInsets.symmetric(horizontal: 30),
                       child: TextFormField(
+                        textCapitalization: TextCapitalization.sentences,
                         controller: hername,
                         validator: (value) {
                           if (value == "") {
@@ -227,33 +232,51 @@ input my love percentage logic
                         ),
                       ],
                     ),
-                    if (lovepercentage == 100)
-                    Text(
-                          message1,
-                          style: const TextStyle(
-                            fontFamily: "Pacifico",
-                            fontSize: 25,
-                            color: Colors.white,
+                    Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        if (lovepercentage == 100)
+                          Text(
+                            message1,
+                            style: const TextStyle(
+                              fontFamily: "Pacifico",
+                              fontSize: 25,
+                              color: Colors.pink,
+                            ),
                           ),
-                        ),
-                         if (lovepercentage > 50 && lovepercentage < 99)
-                    Text(
-                          message2,
-                          style: const TextStyle(
-                            fontFamily: "Pacifico",
-                            fontSize: 25,
-                            color: Colors.white,
+                        if (lovepercentage > 50 && lovepercentage < 99)
+                          Text(
+                            message2,
+                            style: const TextStyle(
+                              fontFamily: "Pacifico",
+                              fontSize: 25,
+                              color: Colors.pink,
+                            ),
                           ),
-                        ),
-                        if (lovepercentage > 1 && lovepercentage < 49)
-                    Text(
-                          message3,
-                          style: const TextStyle(
-                            fontFamily: "Pacifico",
-                            fontSize: 25,
-                            color: Colors.white,
+                        if (lovepercentage > 1 && lovepercentage < 10)
+                          Text(
+                            message3,
+                            style: const TextStyle(
+                              fontFamily: "Pacifico",
+                              fontSize: 25,
+                              color: Colors.pink,
+                            ),
                           ),
-                        ),
+                        if (lovepercentage >= 10 && lovepercentage < 15)
+                          Container(
+                            margin: const EdgeInsets.symmetric(horizontal: 25),
+                            // color: Colors.green,
+                            child: Text(
+                              message4,
+                              style: const TextStyle(
+                                fontFamily: "Pacifico",
+                                fontSize: 25,
+                                color: Colors.pink,
+                              ),
+                            ),
+                          ),
+                      ],
+                    ),
                   ],
                 ),
               ),
